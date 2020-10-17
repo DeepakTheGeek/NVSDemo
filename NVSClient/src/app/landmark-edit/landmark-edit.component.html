@@ -1,0 +1,55 @@
+<h3>Save Landmark</h3>
+<hr>
+<form [formGroup]="landMarkForm" (ngSubmit)="SaveLandMark()">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Landmark Name: </label>
+        <input
+            [ngClass]="{'is-invalid': landMarkForm.get('landmarkName').errors && landMarkForm.get('landmarkName').touched}"
+            class="form-control" formControlName="landmarkName">
+        <div class="invalid-feedback"
+            *ngIf="landMarkForm.get('landmarkName').touched && landMarkForm.get('landmarkName').hasError('required')">
+            landMark Name is
+            required</div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Address: </label>
+        <input [ngClass]="{'is-invalid': landMarkForm.get('address').errors && landMarkForm.get('address').touched}"
+            class="form-control" formControlName="address">
+        <div class="invalid-feedback"
+            *ngIf="landMarkForm.get('address').touched && landMarkForm.get('address').hasError('required')">Address is
+            required</div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Latitude: </label>
+        <input [ngClass]="{'is-invalid': landMarkForm.get('latitude').errors && landMarkForm.get('latitude').touched}"
+            class="form-control" formControlName="latitude">
+        <div class="invalid-feedback"
+            *ngIf="landMarkForm.get('latitude').touched && landMarkForm.get('latitude').hasError('required')">Latitude
+            is
+            required</div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Longtitude: </label>
+        <input
+            [ngClass]="{'is-invalid': landMarkForm.get('longitude').errors && landMarkForm.get('longitude').touched}"
+            class="form-control" formControlName="longitude">
+        <div class="invalid-feedback"
+            *ngIf="landMarkForm.get('longitude').touched && landMarkForm.get('longitude').hasError('required')">
+            Latitude is
+            required</div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description: </label>
+        <input class="form-control" formControlName="description">
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Short Description: </label>
+        <input class="form-control" formControlName="shortDescription">
+    </div>
+    <div class="form-check">
+        <label class="col-sm-2 col-form-label">Is Active: </label>
+        <input class="form-check-input" type="checkbox" formControlName="isActive">
+    </div>
+    <input type="hidden" formControlName='id'>
+    <button class="btn btn-success" type="submit" [disabled]="landMarkForm.invalid">Save</button>
+</form>

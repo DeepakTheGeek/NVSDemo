@@ -1,0 +1,19 @@
+<div>
+    <button class="btn btn-primary" (click)="GotoLandMark()">Add New Landmark</button>
+</div>
+<br>
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Address</th>
+        </thead>
+        <tbody>
+            <tr *ngFor='let landmark of landMarkList'>
+                <td ><button class="btn btn-link" [routerLink]="['/landmark/', landmark.id]">{{landmark.landmarkName}}</button></td>
+                <td>{{landmark.address}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>
